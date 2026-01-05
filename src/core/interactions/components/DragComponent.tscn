@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://df200w3iirp4b"]
+
+[ext_resource type="Script" uid="uid://8h73xp3r0ne7" path="res://src/core/interactions/components/DragComponent.cs" id="1_swowq"]
+
+[node name="DragComponent" type="Node3D"]
+script = ExtResource("1_swowq")
