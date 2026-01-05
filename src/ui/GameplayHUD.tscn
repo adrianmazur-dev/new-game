@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://biol2yti2g3yh"]
+
+[ext_resource type="PackedScene" uid="uid://b4wwi0v680lt7" path="res://src/ui/widgets/Crosshair.tscn" id="1_b4wwi"]
+[ext_resource type="PackedScene" uid="uid://ccsbvl64ip8gs" path="res://src/ui/widgets/InteractionPrompt.tscn" id="2_ccsbv"]
+
+
+[node name="GameplayHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" parent="." instance=ExtResource("1_b4wwi")]
+layout_mode = 1
+
+[node name="InteractionPrompt" parent="." instance=ExtResource("2_ccsbv")]
+layout_mode = 1

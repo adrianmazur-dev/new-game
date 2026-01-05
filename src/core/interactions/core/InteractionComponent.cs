@@ -9,6 +9,7 @@ public abstract partial class InteractionComponent : Node
     [Signal] public delegate void InteractionCancelledEventHandler();
     
     [Export] public string InputAction = "ui_interact";
+    [Export] public string ActionName = "Interact";
 
     public virtual bool CanInteract(Node3D interactor) => true;
     

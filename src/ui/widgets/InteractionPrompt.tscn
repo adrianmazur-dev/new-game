@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccsbvl64ip8gs"]
+
+[ext_resource type="Script" uid="uid://dpuplauexe2ua" path="res://src/ui/widgets/InteractionPrompt.cs" id="1_dpupl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keybg"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.15, 0.15, 0.15, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="InteractionPrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dpupl")
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="KeyBackground" type="PanelContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_keybg")
+
+[node name="KeyLabel" type="Label" parent="Container/KeyBackground"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionLabel" type="Label" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Interact"
+vertical_alignment = 1

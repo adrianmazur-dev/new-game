@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://depm86nlyp0dd"]
+
+[ext_resource type="Script" uid="uid://bsetvvgmj3jea" path="res://src/core/ui/UIManager.cs" id="1_bsetv"]
+[ext_resource type="PackedScene" uid="uid://biol2yti2g3yh" path="res://src/ui/GameplayHUD.tscn" id="2_m3v7t"]
+[node name="UIManager" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_bsetv")
+
+[node name="GameplayHUD" parent="." instance=ExtResource("2_m3v7t")]

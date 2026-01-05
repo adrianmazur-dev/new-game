@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using NewGame.Core.UI;
 
 namespace NewGame.Core.Interactions;
 
@@ -69,6 +70,7 @@ public partial class InteractionDetector : Node
         {
             _currentTarget = interactable;
             _activeComponent = interactable?.GetDefaultInteraction(GetInteractor());
+            NotifyUITargetChanged();
         }
     }
     
@@ -116,12 +118,31 @@ public partial class InteractionDetector : Node
     
     private void ClearTarget()
     {
+        if (_currentTarget == null && _activeComponent == null) return;
+        
         if (_isInteracting && _activeComponent != null)
             _activeComponent.EndInteraction(GetInteractor());
         
         _currentTarget = null;
         _activeComponent = null;
         _isInteracting = false;
+        
+        UIManager.Instance?.ClearInteractionTarget();
+    }
+    
+    private void NotifyUITargetChanged()
+    {
+        if (_activeComponent != null)
+        {
+            UIManager.Instance?.NotifyInteractionTarget(
+                _activeComponent.ActionName,
+                _activeComponent.InputAction
+            );
+        }
+        else
+        {
+            UIManager.Instance?.ClearInteractionTarget();
+        }
     }
     
     private Node3D GetInteractor() => GetParent<Node3D>();

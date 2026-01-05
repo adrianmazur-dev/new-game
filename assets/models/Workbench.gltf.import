@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/Workbench.gltf-33d3125e3afe73faba16ea0bf5cee0
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="Node3D"
+nodes/root_name="Workbench"
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
