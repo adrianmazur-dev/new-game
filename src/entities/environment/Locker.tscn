@@ -94,6 +94,7 @@ MaxAngle = 0.0
 script = ExtResource("2_gu8g0")
 
 [node name="DragComponent" parent="Locker_Door/Interactable" instance=ExtResource("3_1r3hj")]
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Locker_Door"]
 mesh = SubResource("ArrayMesh_u7vqq")

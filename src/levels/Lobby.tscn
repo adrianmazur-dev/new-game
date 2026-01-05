@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dac1bes4sjunu"]
+[gd_scene load_steps=9 format=3 uid="uid://dac1bes4sjunu"]
 
 [ext_resource type="PackedScene" uid="uid://5k3lvrb3ynqy" path="res://src/entities/environment/Floor_Prototype.tscn" id="1_46703"]
 [ext_resource type="PackedScene" uid="uid://dpibcgc888f0c" path="res://src/entities/environment/Wall.tscn" id="2_j460e"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c07xhp6epoexw" path="res://src/entities/player/Player.tscn" id="3_8rv7g"]
 [ext_resource type="PackedScene" uid="uid://cbd2g8jmb48rd" path="res://src/entities/environment/Locker.tscn" id="3_aje2s"]
 [ext_resource type="PackedScene" uid="uid://cbm47t4pm1v6o" path="res://src/entities/environment/Wall_Doorway.tscn" id="4_sdya8"]
+[ext_resource type="PackedScene" uid="uid://diqsxm4ucohhu" path="res://src/entities/environment/Workbench.tscn" id="7_7pr0u"]
 
 [sub_resource type="Environment" id="Environment_aje2s"]
 background_mode = 1
@@ -115,30 +116,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 8)
 [node name="Floor_Prototype24" parent="Environment/Floors" instance=ExtResource("1_46703")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 12)
 
-[node name="Floor_Prototype25" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 8)
-
-[node name="Floor_Prototype26" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12)
-
-[node name="Floor_Prototype27" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 8)
-
-[node name="Floor_Prototype28" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 12)
-
-[node name="Floor_Prototype29" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
-
-[node name="Floor_Prototype30" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 4)
-
-[node name="Floor_Prototype31" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
-
-[node name="Floor_Prototype32" parent="Environment/Floors" instance=ExtResource("1_46703")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 4)
-
 [node name="Lighting" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
@@ -154,6 +131,9 @@ light_energy = 1.991
 omni_range = 9.731212
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 5, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 5, 6)
 light_energy = 1.991
 omni_range = 9.731212
+
+[node name="Workbench" parent="." instance=ExtResource("7_7pr0u")]
+transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, -10.289, 0.5, 10.188)
