@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceneo7bs1kf6y"]
+
+[ext_resource type="PackedScene" uid="uid://5k3lvrb3ynqy" path="res://src/entities/environment/Floor_Prototype.tscn" id="1_g4ids"]
+[ext_resource type="Script" uid="uid://da74d5w56hqnv" path="res://src/core/level-generation/Room.cs" id="1_m38yx"]
+[ext_resource type="PackedScene" uid="uid://dpibcgc888f0c" path="res://src/entities/environment/Wall.tscn" id="2_m38yx"]
+
+[node name="SquareRoom" type="Node3D" node_paths=PackedStringArray("Exits")]
+script = ExtResource("1_m38yx")
+Exits = [NodePath("Marker3D2"), NodePath("Marker3D")]
+
+[node name="Floor_Prototype" parent="." instance=ExtResource("1_g4ids")]
+
+[node name="Floor_Prototype3" parent="Floor_Prototype" instance=ExtResource("1_g4ids")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Floor_Prototype3" parent="Floor_Prototype/Floor_Prototype3" instance=ExtResource("1_g4ids")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Wall3" parent="." instance=ExtResource("2_m38yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Wall2" parent="Wall3" instance=ExtResource("2_m38yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Wall2" parent="Wall3/Wall2" instance=ExtResource("2_m38yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Wall3" parent="Wall3" instance=ExtResource("2_m38yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Wall2" parent="Wall3/Wall3" instance=ExtResource("2_m38yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Wall2" parent="Wall3/Wall3/Wall2" instance=ExtResource("2_m38yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+omni_range = 13.51
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 2, 0)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 6, 2, 0)
