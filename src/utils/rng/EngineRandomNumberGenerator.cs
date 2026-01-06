@@ -4,17 +4,14 @@ public class EngineRandomNumberGenerator : IRandomNumberGenerator
 {
     private readonly RandomNumberGenerator _rng;
 
-    public EngineRandomNumberGenerator() 
+    public EngineRandomNumberGenerator()
     {
         _rng = new RandomNumberGenerator();
     }
 
     public EngineRandomNumberGenerator(ulong seed)
     {
-        _rng = new RandomNumberGenerator 
-        {
-            Seed = seed
-        };
+        _rng = new RandomNumberGenerator { Seed = seed };
     }
 
     public int RandomInt(int min, int max)

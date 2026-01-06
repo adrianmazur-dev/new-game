@@ -4,10 +4,15 @@ namespace NewGame.Core.Interactions;
 
 public partial class DragComponent : InteractionComponent
 {
-    [Signal] public delegate void DragStartedEventHandler();
-    [Signal] public delegate void DraggedEventHandler(Vector2 relativeMovement);
-    [Signal] public delegate void DragEndedEventHandler();
-    
+    [Signal]
+    public delegate void DragStartedEventHandler();
+
+    [Signal]
+    public delegate void DraggedEventHandler(Vector2 relativeMovement);
+
+    [Signal]
+    public delegate void DragEndedEventHandler();
+
     public override void StartInteraction(Node3D interactor)
     {
         EmitSignal(SignalName.InteractionStarted);

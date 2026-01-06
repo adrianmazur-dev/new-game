@@ -6,7 +6,8 @@ public partial class UIManager : CanvasLayer
 {
     public static UIManager Instance { get; private set; }
 
-    [Signal] public delegate void InteractionTargetChangedEventHandler(
+    [Signal]
+    public delegate void InteractionTargetChangedEventHandler(
         string actionName,
         string inputAction,
         bool hasTarget
