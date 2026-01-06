@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://mnlvlt3yrmjc"]
+
+[ext_resource type="PackedScene" uid="uid://dpibcgc888f0c" path="res://src/entities/environment/Wall.tscn" id="1_8bj1k"]
+[ext_resource type="Script" uid="uid://da74d5w56hqnv" path="res://src/core/level-generation/Room.cs" id="1_hhd1y"]
+[ext_resource type="PackedScene" uid="uid://5k3lvrb3ynqy" path="res://src/entities/environment/Floor_Prototype.tscn" id="2_2i5oa"]
+
+[node name="SquareRoom" type="Node3D" node_paths=PackedStringArray("Exits")]
+script = ExtResource("1_hhd1y")
+Exits = [NodePath("Marker3D")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 2, 0)
+
+[node name="Floor_Prototype" parent="." instance=ExtResource("2_2i5oa")]
+
+[node name="Floor_Prototype2" parent="Floor_Prototype" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Floor_Prototype2" parent="Floor_Prototype/Floor_Prototype2" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Floor_Prototype3" parent="Floor_Prototype" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Floor_Prototype2" parent="Floor_Prototype/Floor_Prototype3" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Floor_Prototype2" parent="Floor_Prototype/Floor_Prototype3/Floor_Prototype2" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Floor_Prototype3" parent="Floor_Prototype/Floor_Prototype3" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Floor_Prototype2" parent="Floor_Prototype/Floor_Prototype3/Floor_Prototype3" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Floor_Prototype2" parent="Floor_Prototype/Floor_Prototype3/Floor_Prototype3/Floor_Prototype2" instance=ExtResource("2_2i5oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Wall" parent="." instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Wall2" parent="Wall" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Wall2" parent="Wall/Wall2" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Wall2" parent="Wall/Wall2/Wall2" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 2)
+
+[node name="Wall2" parent="Wall/Wall2/Wall2/Wall2" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="Wall3" parent="Wall" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Wall2" parent="Wall/Wall3" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Wall2" parent="Wall/Wall3/Wall2" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Wall3" parent="Wall/Wall3" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6, 0, -6)
+
+[node name="Wall2" parent="Wall/Wall3/Wall3" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Wall2" parent="Wall/Wall3/Wall3/Wall2" instance=ExtResource("1_8bj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+omni_range = 13.51
