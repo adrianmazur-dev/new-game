@@ -1,4 +1,5 @@
 using Godot;
+using NewGame.Core.Inventory;
 
 public partial class Player : CharacterBody3D
 {
@@ -8,6 +9,7 @@ public partial class Player : CharacterBody3D
 
 	private Marker3D _neck;
 	private Camera3D _camera;
+	private Inventory _inventory;
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
@@ -15,6 +17,7 @@ public partial class Player : CharacterBody3D
 	{
 		_neck = GetNodeOrNull<Marker3D>("Neck");
 		_camera = GetNodeOrNull<Camera3D>("Neck/Camera3D");
+		_inventory = GetNodeOrNull<Inventory>("Inventory");
 
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
@@ -42,6 +45,12 @@ public partial class Player : CharacterBody3D
 			else
 				Input.MouseMode = Input.MouseModeEnum.Captured;
 		}
+
+		// Inventory slot switching
+		if (@event.IsActionPressed("ui_inventory_prev"))
+			_inventory?.SelectPrevious();
+		if (@event.IsActionPressed("ui_inventory_next"))
+			_inventory?.SelectNext();
 	}
 
 	public override void _PhysicsProcess(double delta)

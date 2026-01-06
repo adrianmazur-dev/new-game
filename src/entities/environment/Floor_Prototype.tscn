@@ -1,13 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://5k3lvrb3ynqy"]
+[gd_scene load_steps=6 format=4 uid="uid://5k3lvrb3ynqy"]
 
-[ext_resource type="PackedScene" uid="uid://blxs4tdvq4xaj" path="res://assets/models/Floor_Prototype.gltf" id="1_xtfpn"]
+[ext_resource type="Texture2D" uid="uid://cnjgmxy1byccv" path="res://assets/models/prototypebits_texture.png" id="1_q6kxw"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xtfpn"]
 data = PackedVector3Array(-2, 0, -2, 2, 0, 2, 2, 0, -2, -2, 0, -2, -2, 0, 2, 2, 0, 2, -2, 0.39999998, -2, 2, 0, -2, 2, 0.39999998, -2, -2, 0.39999998, -2, -2, 0, -2, 2, 0, -2, -2, 0.39999998, 2, 2, 0, 2, -2, 0, 2, -2, 0.39999998, 2, 2, 0.39999998, 2, 2, 0, 2, 2, 0.39999998, -2, 2, 0, 2, 2, 0.39999998, 2, 2, 0.39999998, -2, 2, 0, -2, 2, 0, 2, -1.9, 0.5, 1.9, 1.9, 0.5, -1.9, 1.9, 0.5, 1.9, -1.9, 0.5, 1.9, -1.9, 0.5, -1.9, 1.9, 0.5, -1.9, -1.9, 0.5, 1.9, -2, 0.39999998, -2, -1.9, 0.5, -1.9, -1.9, 0.5, 1.9, -2, 0.39999998, 2, -2, 0.39999998, -2, 1.9, 0.5, 1.9, -2, 0.39999998, 2, -1.9, 0.5, 1.9, 1.9, 0.5, 1.9, 2, 0.39999998, 2, -2, 0.39999998, 2, -1.9, 0.5, -1.9, 2, 0.39999998, -2, 1.9, 0.5, -1.9, -1.9, 0.5, -1.9, -2, 0.39999998, -2, 2, 0.39999998, -2, 1.9, 0.5, -1.9, 2, 0.39999998, 2, 1.9, 0.5, 1.9, 1.9, 0.5, -1.9, 2, 0.39999998, -2, 2, 0.39999998, 2, -2, 0.39999998, 2, -2, 0, -2, -2, 0.39999998, -2, -2, 0.39999998, 2, -2, 0, 2, -2, 0, -2)
 
-[node name="Floor_Prototype" instance=ExtResource("1_xtfpn")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6lgl"]
+resource_name = "prototype_texture"
+albedo_texture = ExtResource("1_q6kxw")
+roughness = 0.4
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor_Prototype" index="0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_i4tqv"]
+_surfaces = [{
+"aabb": AABB(-2, 0, -2, 4, 0.50000054, 4),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAABAAMABQAAAAIABAAAAAUABgACAAEABQACAAYABAAHAAEABgABAAcACAAHAAQACQAFAAYACgAGAAcACQAGAAoACgAHAAgACwAFAAkACwAJAAoACwAEAAUACwAKAAgACAAEAAsA"),
+"name": "prototype_texture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAwAAAAAAAAADAAAAAQAAAAAAAAABAAAAAQAAAAAAAAADAAAAAwAAAAAAAAABAAAAAwM7MzD4AAABAAAAAwM7MzD4AAADAAAAAQM7MzD4AAADAAAAAQM7MzD4AAABAMzPzPwkAAD8zM/M/MzPzvwkAAD8zM/O/MzPzPwkAAD8zM/O/MzPzvwkAAD8zM/M/")
+}]
+blend_shape_mode = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor_Prototype/StaticBody3D" index="0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_5hmaj"]
+resource_name = "Floor_Prototype_Cube_16274"
+_surfaces = [{
+"aabb": AABB(-2, 0, -2, 4, 0.50000054, 4),
+"attribute_data": PackedByteArray("AAAAPQAASD8AAGA+AAB4PwAAYD4AAEg/AAAAPQAAeD8BZV8+elx8P6/FZj5zW3w/r8VmPifHez8BZV8+xvB8PwFlXz4nx3s/r8VmPsbwfD8BZV8+c1t8P6/FZj56XHw/r8VmPnpcfD+vxWY+c1t8P6/FZj4nx3s/r8VmPsbwfD9t5ws9iUF3PyUGXT53vkg/JQZdPolBdz9t5ws9d75IP2znCz3KRkI/2KPwPMpGQj9s5ws9ykZCP9ij8DzKRkI/JQZdPspGQj9s5ws9ykZCP2znCz3KRkI/JQZdPspGQj9s5ws9ykZCPyMGXT7KRkI/JQZdPspGQj9s5ws9ykZCPyUGXT7KRkI/bOcLPcpGQj9s5ws9ykZCPyMGXT7KRkI/AWVfPnpcfD8BZV8+c1t8PwFlXz4nx3s/AWVfPsbwfD8="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_h6lgl"),
+"name": "prototype_texture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAwAAAAAAAAADAAAAAQAAAAAAAAABAAAAAQAAAAAAAAADAAAAAwAAAAAAAAABAAAAAwM7MzD4AAADAAAAAQAAAAAAAAADAAAAAQM7MzD4AAADAAAAAwAAAAAAAAADAAAAAwM7MzD4AAABAAAAAQAAAAAAAAABAAAAAwAAAAAAAAABAAAAAQM7MzD4AAABAAAAAQM7MzD4AAADAAAAAQAAAAAAAAABAAAAAQM7MzD4AAABAAAAAQAAAAAAAAADAMzPzvwkAAD8zM/M/MzPzPwkAAD8zM/O/MzPzPwkAAD8zM/M/MzPzvwkAAD8zM/O/MzPzvwkAAD8zM/M/AAAAwM7MzD4AAADAMzPzvwkAAD8zM/O/AAAAwM7MzD4AAABAMzPzPwkAAD8zM/M/AAAAwM7MzD4AAABAMzPzvwkAAD8zM/M/AAAAQM7MzD4AAABAMzPzvwkAAD8zM/O/AAAAQM7MzD4AAADAMzPzPwkAAD8zM/O/AAAAwM7MzD4AAADAMzPzPwkAAD8zM/O/AAAAQM7MzD4AAABAMzPzPwkAAD8zM/M/AAAAQM7MzD4AAADAAAAAwM7MzD4AAABAAAAAwAAAAAAAAADAAAAAwM7MzD4AAADAAAAAwAAAAAAAAABA/38AAP///z//fwAA////P/9/AAD///8//38AAP///z//////SfTaRf////9J9NpF/////0n02kX/////SfTaRf9//39J9NrF/3//f0n02sX/f/9/SfTaxf9//39J9NrF////f////7////9/////v////3////+/////f////7//f///////v/9///////+//3///////7//f///////v/8//7////+//z//v////7//P/+/////v/8//7////+//3//v////z//f/+/////P/9//7////8//3//v////z//v///////v/+///////+//7///////7//v///////v/+//7////+//7//v////7//v/+/////v/+//7////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i4tqv")
+
+[node name="Floor_Prototype" type="Node3D"]
+
+[node name="Floor_Prototype" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor_Prototype"]
 shape = SubResource("ConcavePolygonShape3D_xtfpn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor_Prototype"]
+mesh = SubResource("ArrayMesh_5hmaj")
+skeleton = NodePath("")

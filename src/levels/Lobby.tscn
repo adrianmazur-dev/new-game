@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dac1bes4sjunu"]
+[gd_scene load_steps=10 format=3 uid="uid://dac1bes4sjunu"]
 
 [ext_resource type="PackedScene" uid="uid://5k3lvrb3ynqy" path="res://src/entities/environment/Floor_Prototype.tscn" id="1_46703"]
 [ext_resource type="PackedScene" uid="uid://dpibcgc888f0c" path="res://src/entities/environment/Wall.tscn" id="2_j460e"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbd2g8jmb48rd" path="res://src/entities/environment/Locker.tscn" id="3_aje2s"]
 [ext_resource type="PackedScene" uid="uid://cbm47t4pm1v6o" path="res://src/entities/environment/Wall_Doorway.tscn" id="4_sdya8"]
 [ext_resource type="PackedScene" uid="uid://diqsxm4ucohhu" path="res://src/entities/environment/Workbench.tscn" id="7_7pr0u"]
+[ext_resource type="PackedScene" uid="uid://dcb5q0du2tetd" path="res://src/entities/items/models/Flashlight.tscn" id="8_sdya8"]
 
 [sub_resource type="Environment" id="Environment_aje2s"]
 background_mode = 1
@@ -20,7 +21,7 @@ environment = SubResource("Environment_aje2s")
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("3_8rv7g")]
-transform = Transform3D(-1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, -1.0606601, -6, 1.8, 7)
+transform = Transform3D(-1.0606601, 0, 1.0606601, 0, 1.5, 0, -1.0606601, 0, -1.0606601, -6, 1.8, 7)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -137,3 +138,6 @@ omni_range = 9.731212
 
 [node name="Workbench" parent="." instance=ExtResource("7_7pr0u")]
 transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, -10.289, 0.5, 10.188)
+
+[node name="Flashlight" parent="." instance=ExtResource("8_sdya8")]
+transform = Transform3D(0.062681496, -0.9983182, 0.23393047, 0.2583838, 0.24218261, 0.9643012, -0.9922704, 0, 0.2658781, -10.444043, 2.3808742, 9.883985)

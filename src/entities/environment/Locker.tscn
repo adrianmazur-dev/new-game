@@ -82,7 +82,7 @@ data = PackedVector3Array(-0.5, 0.2, 0.5, -0.5, 3, -0.5, -0.5, 3, 0.5, -0.5, 0.2
 
 [node name="Locker" type="Node3D"]
 
-[node name="Locker_Door" type="AnimatableBody3D" parent="."]
+[node name="Locker_Door" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3999939, 1.6000004, 0.4500003)
 
 [node name="PhysicalDoorController" type="Node3D" parent="Locker_Door"]

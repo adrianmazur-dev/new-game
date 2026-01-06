@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c07xhp6epoexw"]
+[gd_scene load_steps=5 format=3 uid="uid://c07xhp6epoexw"]
 
 [ext_resource type="Script" uid="uid://dmw5i36ru5ebi" path="res://src/entities/player/Player.cs" id="1_player"]
 [ext_resource type="Script" uid="uid://b5dn03cog8y6s" path="res://src/core/interactions/core/InteractionDetector.cs" id="2_detector"]
+[ext_resource type="Script" path="res://src/core/inventory/Inventory.cs" id="3_inventory"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tcndw"]
 radius = 0.4
@@ -20,3 +21,7 @@ shape = SubResource("CapsuleShape3D_tcndw")
 
 [node name="InteractionDetector" type="Node" parent="."]
 script = ExtResource("2_detector")
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("3_inventory")
+

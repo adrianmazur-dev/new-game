@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://f7u25df66p0a"]
+
+[ext_resource type="Script" uid="uid://di1dbntr5636b" path="res://src/core/inventory/ItemData.cs" id="1_sw4bg"]
+
+[resource]
+resource_name = "Flashlight"
+script = ExtResource("1_sw4bg")
+Id = "flashlight"
+DisplayName = "Flashlight"
+metadata/_custom_type_script = "uid://di1dbntr5636b"
