@@ -40,7 +40,7 @@ public class DebugGenerationStrategy : ILevelGenerationStrategy
 				node.ExitToConnectTo.Position.Z
 			);
 
-			const int maxRotationAttempts = 3;
+			const int maxRotationAttempts = 4;
 			bool aligned = false;
 
 			for (int attempt = 0; attempt < maxRotationAttempts; attempt++)
@@ -49,9 +49,7 @@ public class DebugGenerationStrategy : ILevelGenerationStrategy
 				Vector3 entranceForward = entrance.GetDirection();
 				float dotProduct = exitForward.Dot(entranceForward);
 
-				GD.Print($"Entrance: {entrance.GlobalTransform.Basis}");
-				GD.Print($"Inside tree: {entrance.IsInsideTree()}");
-				GD.Print($"Idenitity: {entrance.GlobalTransform.Equals(Transform3D.Identity)}");
+				GD.Print($"Dot product: {dotProduct}");
 
 				if (dotProduct == -1)
 				{
@@ -59,7 +57,7 @@ public class DebugGenerationStrategy : ILevelGenerationStrategy
 					break;
 				}
 
-				room.RotateY(Mathf.DegToRad(45));
+				room.RotateY(Mathf.DegToRad(90));
 			}
 
 			GD.Print();
