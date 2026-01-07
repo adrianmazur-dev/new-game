@@ -5,54 +5,68 @@ using Godot;
 
 public partial class LevelGenerator : Node3D
 {
-    [Export]
-    public PackedScene[] PossibleRoomScenes = [];
+	[Export]
+	public PackedScene[] PossibleRoomScenes = [];
 
-    [Export]
-    public Node3D RoomsContainer;
+	[Export]
+	public Node3D RoomsContainer;
 
-    private readonly HashSet<Room> _possibleRooms = [];
+	private readonly HashSet<Room> _possibleRooms = [];
 
-    public override void _Ready()
-    {
-        if (RoomsContainer == null)
-        {
-            GD.PrintErr("No room container node provided.");
-        }
+	public override void _Ready()
+	{
+		if (RoomsContainer == null)
+		{
+			GD.PrintErr("No room container node provided.");
+		}
 
-        if (RoomsContainer == this)
-        {
-            GD.PrintErr("Provide room container node different than LevelGenerator node.");
-        }
+		if (RoomsContainer == this)
+		{
+			GD.PrintErr("Provide room container node different than LevelGenerator node.");
+		}
 
-        foreach (PackedScene roomScene in PossibleRoomScenes)
-        {
-            try
-            {
-                Room roomInstance = roomScene.Instantiate<Room>();
-                _possibleRooms.Add(roomInstance);
-            }
-            catch
-            {
-                GD.PrintErr(
-                    $"Scene \"{roomScene.ResourcePath}\" has no room script attached to the root node."
-                );
-            }
-        }
+		foreach (PackedScene roomScene in PossibleRoomScenes)
+		{
+			Room roomInstance = roomScene.InstantiateOrNull<Room>();
 
-        GD.Print($"Loaded {_possibleRooms.Count} rooms.");
-    }
+			if (roomInstance == null)
+			{
+				GD.PrintErr(
+					$"Scene \"{roomScene.ResourcePath}\" has no room script attached to the root node."
+				);
+				return;
+			}
 
-    public void OnGenerateButtonClick()
-    {
-        DebugGenerationStrategy strategy = new();
-        EngineRandomNumberGenerator rng = new();
+			if (roomInstance.Exits.Length == 0)
+			{
+				GD.PrintErr($"Room \"{roomScene.ResourcePath}\" has no exits.");
+				return;
+			}
 
-        foreach (Node child in RoomsContainer.GetChildren())
-        {
-            child.QueueFree();
-        }
+			if (roomInstance.Exits.Any(exit => exit is not ExitMarker))
+			{
+				GD.PrintErr(
+					$"Room \"{roomScene.ResourcePath}\" has exits without ExitMarker script attached."
+				);
+				return;
+			}
 
-        strategy.GenerateLevel(_possibleRooms, rng, RoomsContainer);
-    }
+			_possibleRooms.Add(roomInstance);
+		}
+
+		GD.Print($"Loaded {_possibleRooms.Count} rooms.");
+	}
+
+	public void OnGenerateButtonClick()
+	{
+		DebugGenerationStrategy strategy = new();
+		EngineRandomNumberGenerator rng = new();
+
+		foreach (Node child in RoomsContainer.GetChildren())
+		{
+			child.QueueFree();
+		}
+
+		strategy.GenerateLevel(_possibleRooms, rng, RoomsContainer);
+	}
 }

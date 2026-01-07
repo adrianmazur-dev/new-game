@@ -1,18 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk4gkirwhqik5"]
+[gd_scene load_steps=5 format=3 uid="uid://dk4gkirwhqik5"]
 
 [ext_resource type="Script" uid="uid://da74d5w56hqnv" path="res://src/core/level-generation/Room.cs" id="1_f0omi"]
 [ext_resource type="PackedScene" uid="uid://5k3lvrb3ynqy" path="res://src/entities/environment/Floor_Prototype.tscn" id="2_2e1f3"]
 [ext_resource type="PackedScene" uid="uid://dpibcgc888f0c" path="res://src/entities/environment/Wall.tscn" id="3_vcy8p"]
+[ext_resource type="PackedScene" uid="uid://deewc52wf6c0w" path="res://src/core/level-generation/ExitMarker.tscn" id="4_7pm67"]
 
 [node name="SquareRoom" type="Node3D" node_paths=PackedStringArray("Exits")]
 script = ExtResource("1_f0omi")
-Exits = [NodePath("Marker3D"), NodePath("Marker3D2")]
-
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 2, 4)
-
-[node name="Marker3D2" type="Marker3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 2, -4)
+Exits = [NodePath("ExitMarker"), NodePath("ExitMarker2")]
 
 [node name="Floor_Prototype" parent="." instance=ExtResource("2_2e1f3")]
 
@@ -73,3 +68,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 omni_range = 13.51
+
+[node name="ExitMarker" parent="." instance=ExtResource("4_7pm67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 2, 4)
+
+[node name="ExitMarker2" parent="." instance=ExtResource("4_7pm67")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 2, -4)

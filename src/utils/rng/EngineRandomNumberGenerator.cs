@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 public class EngineRandomNumberGenerator : IRandomNumberGenerator
@@ -27,5 +28,19 @@ public class EngineRandomNumberGenerator : IRandomNumberGenerator
     public Vector2 RandomVec2(float minX, float maxX, float minY, float maxY)
     {
         return new Vector2(RandomFloat(minX, maxX), RandomFloat(minY, maxY));
+    }
+
+    public T RandomListElement<T>(IReadOnlyList<T> list)
+    {
+        return list[RandomInt(0, list.Count)];
+    }
+
+    public void ShuffleList<T>(IList<T> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = RandomInt(0, i);
+            (list[i], list[j]) = (list[j], list[i]);
+        }
     }
 }

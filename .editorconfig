@@ -11,8 +11,7 @@ dotnet_sort_system_directives_first = true
 dotnet_separate_import_directive_groups = false
 
 end_of_line = lf
-indent_style = space
-indent_size = 4
+indent_style = tab
 max_line_length = 100
 
 [*.{config,csproj,props,slnx,targets,xaml,xml}]

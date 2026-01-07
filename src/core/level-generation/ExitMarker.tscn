@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://deewc52wf6c0w"]
+
+[ext_resource type="Script" uid="uid://cwxcai1u7lakl" path="res://src/core/level-generation/ExitMarker.cs" id="1_0ie3n"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_uxcto"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pvecc"]
+lightmap_size_hint = Vector2i(14, 21)
+
+[node name="ExitMarker" type="Node3D"]
+script = ExtResource("1_0ie3n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.1, 0, 0.5, -4.371139e-09, 0, 0, 0.25)
+mesh = SubResource("PrismMesh_uxcto")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, -2.1855694e-08, -0.1, 0, 0.5, -4.371139e-09, 0, 0, -0.25)
+mesh = SubResource("BoxMesh_pvecc")
+skeleton = NodePath("../MeshInstance3D")

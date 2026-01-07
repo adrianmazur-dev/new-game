@@ -3,9 +3,9 @@ using Godot;
 
 public interface ILevelGenerationStrategy
 {
-    public void GenerateLevel(
-        ICollection<Room> possibleRooms,
-        IRandomNumberGenerator rng,
-        Node parentNode
-    );
+	public void GenerateLevel(
+		ICollection<Room> possibleRooms,
+		IRandomNumberGenerator rng,
+		Node parentNode
+	);
 }
